@@ -1,5 +1,154 @@
 ---
-title: false
+styles: true
 ---
 
+// 기본 Garth 테마 스타일을 가져옵니다
 @import "garth";
+
+// 여기서부터 사용자 정의 스타일을 추가할 수 있습니다
+
+// 코드 블록 스타일 강화
+pre, code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  border-radius: 4px;
+}
+
+pre {
+  padding: 1em;
+  overflow-x: auto;
+  background-color: #f8f9fa;
+  border: 1px solid #eaecef;
+}
+
+// 인용문 스타일 개선
+blockquote {
+  margin-left: 0;
+  padding-left: 1em;
+  border-left: 4px solid #ced4da;
+  color: #495057;
+}
+
+// 헤더 스타일 개선
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+
+// 링크 스타일
+a {
+  transition: color 0.2s ease;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// 테이블 스타일 개선
+table {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+  
+  th, td {
+    padding: 0.5rem;
+    border: 1px solid #dee2e6;
+  }
+  
+  th {
+    background-color: #f8f9fa;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+}
+
+// 태그 스타일
+.tag {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  margin: 0 0.2em 0.5em 0;
+  font-size: 0.8em;
+  background-color: #f1f3f5;
+  border-radius: 3px;
+  color: #495057;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background-color: #e9ecef;
+    text-decoration: none;
+  }
+}
+
+// 포스트 목록 스타일 개선
+.post-list {
+  .post-item {
+    margin-bottom: 2em;
+    padding-bottom: 2em;
+    border-bottom: 1px solid #e9ecef;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  
+  .post-date {
+    font-size: 0.9em;
+    color: #6c757d;
+  }
+  
+  .post-excerpt {
+    margin-top: 0.5em;
+  }
+}
+
+// 모바일 반응형 개선
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+// 푸터 스타일
+.footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-top: 1px solid #e9ecef;
+  color: #6c757d;
+  font-size: 0.9em;
+  
+  a {
+    color: #495057;
+    
+    &:hover {
+      color: #212529;
+    }
+  }
+}
+
+// 소셜 아이콘 스타일
+.social-icons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: #f8f9fa;
+    color: #495057;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      background-color: #e9ecef;
+      transform: translateY(-2px);
+    }
+  }
+}
