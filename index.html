@@ -8,21 +8,24 @@
     />
     <meta
       name="description"
-      content="20년차 Java 백엔드 시니어 포트폴리오 — 터미널 스타일"
+      content="[CLI PORTFOLIO] 20년차 백엔드 시니어의 운영형 아키텍처 설계 이력"
     />
-    <meta property="og:title" content="김인성 | Senior Java Backend Portfolio" />
+    <meta property="og:title" content="[CMD] 김인성 · Senior Java Backend Portfolio" />
     <meta
       property="og:description"
-      content="Java, Spring, 아키텍처 설계 중심의 20년차 백엔드 시니어 포트폴리오"
+      content="Java, Spring, MSA, 운영 자동화 중심의 20년차 백엔드 시니어 로그형 포트폴리오"
     />
     <meta property="og:type" content="website" />
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="김인성 - Senior Java Backend Portfolio" />
+    <meta
+      property="twitter:title"
+      content="[CMD] 김인성 - Senior Java Backend Portfolio"
+    />
     <meta
       property="twitter:description"
-      content="Java, Spring, 아키텍처 설계 중심의 20년차 백엔드 시니어 포트폴리오"
+      content="Java, Spring, MSA, 운영 자동화 중심의 20년차 백엔드 시니어 로그형 포트폴리오"
     />
-    <title>김인성 - Senior Java Backend Portfolio</title>
+    <title>[CMD] 김인성 - Senior Java Backend Portfolio</title>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
 
@@ -384,6 +387,9 @@
       .contact-card strong {
         color: #d6f4ff;
         font-size: 0.84rem;
+        display: flex;
+        align-items: center;
+        gap: 6px;
       }
 
       .contact-card span {
@@ -396,6 +402,12 @@
         font-size: 0.77rem;
         line-height: 1.5;
         word-break: break-all;
+      }
+
+      .contact-card .meta-sub {
+        color: #85a4bd;
+        font-size: 0.65rem;
+        letter-spacing: 0.03em;
       }
 
       .hero-layout {
@@ -426,6 +438,12 @@
       .meta-card span {
         color: var(--muted);
         font-size: 0.8rem;
+      }
+
+      .log-label {
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 0.72rem;
       }
 
       .panel.section .panel-body {
@@ -489,10 +507,29 @@
         gap: 6px;
       }
 
-      .project h4 {
+      .project-title {
         margin: 0;
         font-size: 0.97rem;
         color: #f2f9ff;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        align-items: center;
+      }
+
+      .meta-lines {
+        display: grid;
+        gap: 6px;
+      }
+
+      .meta-line {
+        margin: 0;
+        color: #b9ceea;
+        line-height: 1.6;
+      }
+
+      .meta-line .log-label {
+        margin-right: 6px;
       }
 
       .meta {
@@ -605,10 +642,30 @@
         font-size: 0.8rem;
       }
 
+      .timeline-item .period,
+      .timeline-item .timeline-meta {
+        color: #a8c7e4;
+      }
+
       .timeline-item p {
-        margin-top: 6px;
+        margin-top: 8px;
         color: #bfceed;
         line-height: 1.7;
+      }
+
+      .timeline-item ul {
+        margin: 8px 0 0 18px;
+        padding: 0;
+        color: #bfd0eb;
+      }
+
+      .timeline-item li {
+        margin-bottom: 6px;
+        line-height: 1.55;
+      }
+
+      .timeline-item li .log-label {
+        margin-right: 6px;
       }
 
       .cli-line {
@@ -893,7 +950,7 @@
             <h2 class="panel-title">[DIR] <span>./projects</span></h2>
           </div>
           <div class="panel-body">
-            <p class="section-intro">이슈 → 설계 → 실행 → 검증의 순서로 로그처럼 정렬</p>
+            <p class="section-intro">[ISSUE] → [ARCH] → [OUTCOME] 순서로 검증 가능한 로그를 출력합니다.</p>
             <div class="projects" id="projectsList"></div>
           </div>
         </section>
@@ -903,7 +960,7 @@
             <h2 class="panel-title">[MODULE] <span>skills.sh</span></h2>
           </div>
           <div class="panel-body">
-            <p class="section-intro">영역별 성능·회복력 지표와 운영 성숙도를 함께 측정</p>
+            <p class="section-intro">각 스택별 수치·점수를 실측 상태값으로 재해석했습니다.</p>
             <div class="skill-wrap" id="skillsList"></div>
           </div>
         </section>
@@ -913,7 +970,7 @@
             <h2 class="panel-title">[LOG] <span>career.timeline</span></h2>
           </div>
           <div class="panel-body">
-            <p class="section-intro">실전 운영 환경에서 축적한 설계·릴리즈·안정화 이력</p>
+            <p class="section-intro">[WHEN], [ROLE], [IMPACT] 기반으로 정렬한 운영 연혁입니다.</p>
             <div class="timeline" id="careerList"></div>
           </div>
         </section>
@@ -923,37 +980,37 @@
             <h2 class="panel-title">[OUTPUT] <span>contact.contact</span></h2>
           </div>
           <div class="panel-body">
-            <p class="section-intro">협업·채용·기술 제안은 아래 엔드포인트로 요청하세요</p>
+            <p class="section-intro">협업·채용·기술 제안은 아래 엔드포인트로 요청하세요.</p>
             <div class="contact-layout">
               <div class="contact-grid">
                 <a class="contact-card" href="mailto:kim.inseong@example.com">
-                  <strong>EMAIL</strong>
-                  <span>Primary Contact</span>
+                  <strong><span class="log-label">[GET]</span>/contact/email</strong>
+                  <span class="meta-sub">Primary Contact</span>
                   <span class="value">kim.inseong@example.com</span>
                 </a>
                 <a class="contact-card" href="mailto:kim.inseong@example.com?subject=%5B포트폴리오%5D%20협업%20제안">
-                  <strong>COLLABORATION</strong>
-                  <span>Project / Hiring</span>
+                  <strong><span class="log-label">[POST]</span>/contact/proposal</strong>
+                  <span class="meta-sub">Project / Hiring</span>
                   <span class="value">협업 제안 메일 보내기</span>
                 </a>
                 <a class="contact-card" href="https://github.com/kensin8026" target="_blank" rel="noopener noreferrer">
-                  <strong>GitHub</strong>
-                  <span>Code Repository</span>
+                  <strong><span class="log-label">[LINK]</span>/source/github</strong>
+                  <span class="meta-sub">Code Repository</span>
                   <span class="value">github.com/kensin8026</span>
                 </a>
                 <a class="contact-card" href="https://www.linkedin.com/in/kiminseong" target="_blank" rel="noopener noreferrer">
-                  <strong>LinkedIn</strong>
-                  <span>Professional Network</span>
+                  <strong><span class="log-label">[LINK]</span>/network/linkedin</strong>
+                  <span class="meta-sub">Professional Network</span>
                   <span class="value">linkedin.com/in/kiminseong</span>
                 </a>
                 <a class="contact-card" href="https://blog.example.com" target="_blank" rel="noopener noreferrer">
-                  <strong>Tech Blog</strong>
-                  <span>Technical notes</span>
+                  <strong><span class="log-label">[FILE]</span>/docs/tech-blog</strong>
+                  <span class="meta-sub">Technical notes</span>
                   <span class="value">blog.example.com</span>
                 </a>
                 <a class="contact-card" href="/resume.pdf">
-                  <strong>Resume</strong>
-                  <span>Downloadable CV</span>
+                  <strong><span class="log-label">[FILE]</span>./resume.pdf</strong>
+                  <span class="meta-sub">Downloadable CV</span>
                   <span class="value">resume.pdf</span>
                 </a>
               </div>
@@ -980,6 +1037,7 @@
           title: '대규모 주문/재고 서비스 안정화',
           period: '2024 - 2025',
           role: 'Lead Backend Engineer',
+          issue: '피크 타임 주문 동시성 증가로 재고 정합성 깨짐과 중복 주문이 증가',
           architecture: '이중 쓰기 격리 + 동시성 제어 패턴 리디자인',
           outcome: '피크 타임 응답 지연 40% 개선, 중복 처리율 하락',
           tech: ['Java', 'Spring Boot', 'Kafka', 'Redis', 'PostgreSQL'],
@@ -988,6 +1046,7 @@
           title: '실시간 정산 파이프라인 플랫폼',
           period: '2022 - 2024',
           role: 'Backend Architect',
+          issue: '실패한 정산 트랜잭션 누적으로 정합성 이슈와 수동 복구가 반복',
           architecture: '보상 트랜잭션 + 분산 스케줄링 구조 적용',
           outcome: '실패율 0.4% → 0.07%로 감소',
           tech: ['Java', 'Spring Batch', 'RabbitMQ', 'MyBatis', 'MySQL'],
@@ -996,6 +1055,7 @@
           title: 'Legacy to MSA 전환',
           period: '2020 - 2022',
           role: 'Tech Lead',
+          issue: '모놀리식 결합도가 높아 확장성·배포 리스크·회귀 분석이 어려움',
           architecture: '도메인 분해와 인증·감사 공통 모듈 정비',
           outcome: '릴리스 주기 2주 → 2일, 복구 시간 50% 단축',
           tech: ['Java', 'Spring Cloud', 'JPA', 'PostgreSQL', 'Docker'],
@@ -1004,6 +1064,7 @@
           title: '운영 모니터링 통합 대시보드',
           period: '2019 - 2020',
           role: 'Senior Developer',
+          issue: '장애 징후 탐지 지연과 원인 추적 루프 미비',
           architecture: '메트릭 수집, 알림 임계치 정책, 근본 원인 추적 체계',
           outcome: '탐지 시간 3배 단축, 회귀 분석 표준화',
           tech: ['Java', 'Prometheus', 'Grafana', 'Spring Actuator', 'ELK'],
@@ -1049,18 +1110,30 @@
           company: 'TechCorp Korea',
           role: 'Senior Backend Engineer / Tech Lead',
           text: '결제·정산 파이프라인의 안정성 개선을 주도하며 배포 리스크를 줄이고 운영 지표 기반 점검 문화 정착에 기여했습니다.',
+          points: [
+            '실제 장애 건당 복구 절차 표준화를 통해 MTTR을 단축',
+            '정산 파이프라인 SLA 점검을 운영 규칙으로 정착',
+          ],
         },
         {
           period: '2015 - 2021',
           company: 'PlatformSoft',
           role: 'Backend Engineer',
           text: '금융형 SaaS 핵심 API 리빌딩으로 동시성 병목을 해소하고 장애 영향도를 감소시켰으며, 리뷰 가이드로 품질 문화를 강화했습니다.',
+          points: [
+            '동시성 병목을 모듈 경계로 분해해 배포 영향도를 축소',
+            '장애 추적 룰북을 전사 리뷰 가이드로 전파',
+          ],
         },
         {
           period: '2008 - 2015',
           company: 'CloudWave',
           role: 'Software Engineer',
           text: '웹서비스 백엔드와 운영 도구를 담당하며 JVM 튜닝, 배치 자동화, API 안정성 개선 프로젝트를 진행했습니다.',
+          points: [
+            'JVM 튜닝 및 배치 자동화 기반을 운영 루틴에 통합',
+            '장애 재발 방지 체크리스트를 프로젝트 템플릿에 포함',
+          ],
         },
       ];
 
@@ -1073,10 +1146,16 @@
         .map(
           (project) => `
             <article class="project">
-              <h4>${project.title}</h4>
+              <h4 class="project-title">
+                <span class="log-label">[PROJECT]</span>
+                ${project.title}
+              </h4>
               <div class="meta"><strong>${project.period}</strong> · ${project.role}</div>
-              <p>${project.architecture}</p>
-              <p><strong>Outcome:</strong> ${project.outcome}</p>
+              <div class="meta-lines">
+                <p class="meta-line"><span class="log-label">[ISSUE]</span> ${project.issue}</p>
+                <p class="meta-line"><span class="log-label">[ARCH]</span> ${project.architecture}</p>
+                <p class="meta-line"><span class="log-label">[OUTCOME]</span> ${project.outcome}</p>
+              </div>
               <div class="tags">${project.tech.map((item) => `<span class="tag-small">${item}</span>`).join('')}</div>
             </article>
           `,
@@ -1104,9 +1183,15 @@
         .map(
           (career) => `
             <article class="timeline-item">
-              <h3>${career.role}</h3>
-              <div class="period">${career.period} · ${career.company}</div>
-              <p>${career.text}</p>
+              <h3>
+                <span class="log-label">[ROLE]</span>
+                ${career.role}
+              </h3>
+              <div class="period timeline-meta"><span class="log-label">[WHEN]</span> ${career.period} · ${career.company}</div>
+              <p><span class="log-label">[SUMMARY]</span> ${career.text}</p>
+              <ul>
+                ${career.points.map((point) => `<li><span class="log-label">[TASK]</span> ${point}</li>`).join('')}
+              </ul>
             </article>
           `,
         )
