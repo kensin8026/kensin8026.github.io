@@ -29,17 +29,19 @@
     />
     <title>김인성 - Senior Java Backend Portfolio</title>
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap");
+
       :root {
-        --bg: #050712;
-        --bg-soft: #09112a;
-        --card: #0c1630cc;
-        --card-strong: #111f45;
-        --line: #25355f;
-        --text: #e6ecff;
-        --muted: #98a7ce;
-        --accent: #32e7ff;
-        --accent-2: #89ddff;
-        --accent-3: #6ae8a8;
+        --bg: #070a0d;
+        --bg-soft: #0a1118;
+        --card: #0a141fcc;
+        --card-strong: #0f1c2d;
+        --line: #1f3650;
+        --text: #dce7ef;
+        --muted: #96a7b7;
+        --accent: #00e6a8;
+        --accent-2: #00c2ff;
+        --accent-3: #6cff7a;
         --radius: 22px;
         --shadow: 0 26px 70px rgba(2, 8, 28, 0.55);
       }
@@ -57,11 +59,17 @@
         margin: 0;
         min-height: 100vh;
         color: var(--text);
+        font-family:
+          'JetBrains Mono',
+          'Fira Code',
+          'SFMono-Regular',
+          'Menlo',
+          'Consolas',
+          monospace;
         background:
-          radial-gradient(1000px 500px at 10% -10%, rgba(50, 231, 255, 0.2), transparent 48%),
-          radial-gradient(700px 380px at 88% 4%, rgba(154, 253, 176, 0.13), transparent 50%),
-          linear-gradient(170deg, #04060f 0%, #071126 38%, #0b1430 100%);
-        font-family: Inter, Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+          radial-gradient(1100px 520px at 8% -12%, rgba(0, 230, 168, 0.16), transparent 50%),
+          radial-gradient(760px 430px at 92% 6%, rgba(0, 194, 255, 0.1), transparent 52%),
+          linear-gradient(170deg, #05080c 0%, #070d15 40%, #080f1d 100%);
         overflow-x: hidden;
       }
 
@@ -164,6 +172,7 @@
       .brand small {
         color: var(--muted);
         font-size: 0.81rem;
+        letter-spacing: 0.04em;
       }
 
       nav {
@@ -177,6 +186,7 @@
         border-radius: 999px;
         color: #d3def8;
         border: 1px solid transparent;
+        letter-spacing: 0.03em;
       }
 
       .top-link.active,
@@ -197,9 +207,10 @@
 
       .panel {
         margin-top: 24px;
-        border: 1px solid rgba(255, 255, 255, 0.09);
+        border: 1px solid rgba(0, 230, 168, 0.2);
         border-radius: var(--radius);
-        background: linear-gradient(160deg, rgba(12, 22, 49, 0.76), rgba(8, 17, 40, 0.78));
+        background:
+          linear-gradient(160deg, rgba(9, 18, 30, 0.84), rgba(7, 14, 25, 0.86));
         box-shadow: var(--shadow);
         padding: clamp(1.4rem, 2.5vw, 2rem);
       }
@@ -237,6 +248,7 @@
 
       h1 {
         font-size: clamp(2rem, 6vw, 3.8rem);
+        font-weight: 700;
         line-height: 1.16;
         letter-spacing: -0.03em;
       }
@@ -283,13 +295,13 @@
       }
 
       .btn-primary {
-        background: linear-gradient(100deg, #2ad8ff, #72c6ff);
+        background: linear-gradient(90deg, #00e6a8, #00b8ff);
         color: #07112b;
       }
 
       .btn-secondary {
         background: transparent;
-        border-color: rgba(255, 255, 255, 0.25);
+        border-color: rgba(0, 230, 168, 0.35);
         color: #e8f0ff;
       }
 
@@ -386,7 +398,7 @@
 
       .project {
         border: 1px solid rgba(255, 255, 255, 0.1);
-        background: linear-gradient(150deg, rgba(17, 31, 58, 0.58), rgba(13, 23, 45, 0.56));
+        background: linear-gradient(150deg, rgba(10, 22, 36, 0.62), rgba(8, 16, 31, 0.58));
         border-radius: 16px;
         padding: 16px;
         min-height: 205px;
@@ -429,7 +441,7 @@
 
       .tag {
         border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(0, 230, 168, 0.22);
         color: #d6e4ff;
         font-size: 0.74rem;
         padding: 4px 9px;
