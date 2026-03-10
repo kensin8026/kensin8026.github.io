@@ -1,4 +1,900 @@
----
-layout: home
-collectionpage: posts
----
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta
+      name="description"
+      content="20년차 Java 백엔드 시니어 포트폴리오"
+    />
+    <meta property="og:title" content="백엔드 시니어 포트폴리오" />
+    <meta
+      property="og:description"
+      content="Java, Spring, 아키텍처 설계 중심의 백엔드 시니어 포트폴리오"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="김인성 - Senior Java Backend Portfolio" />
+    <meta
+      property="twitter:description"
+      content="Java, Spring, 아키텍처 설계 중심의 백엔드 시니어 포트폴리오"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext x='4' y='18' font-size='16'%3E%26#9881%3B%3C/text%3E%3C/svg%3E"
+      type="image/svg+xml"
+    />
+    <title>김인성 - Senior Java Backend Portfolio</title>
+    <style>
+      :root {
+        --bg: #070a16;
+        --panel: #0f1730;
+        --panel-soft: #111b3a;
+        --line: #24335f;
+        --text: #e5ecff;
+        --muted: #90a0ce;
+        --accent: #63e2ff;
+        --accent-2: #7a7dff;
+        --radius: 18px;
+        --shadow: 0 16px 55px rgba(6, 12, 30, 0.45);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--text);
+        background:
+          radial-gradient(1200px 500px at 5% 0%, #1c4fff22, transparent 56%),
+          radial-gradient(900px 420px at 95% 10%, #7ef8ff2c, transparent 56%),
+          linear-gradient(170deg, #060913 0%, #0a1530 46%, #0f1f44 100%);
+        font-family:
+          Pretendard,
+          'Apple SD Gothic Neo',
+          'Noto Sans KR',
+          'Segoe UI',
+          sans-serif;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .noise {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image: repeating-linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.045) 0,
+          rgba(255, 255, 255, 0.045) 1px,
+          transparent 1px,
+          transparent 3px
+        );
+        opacity: 0.15;
+        z-index: -1;
+      }
+
+      .container {
+        width: min(1100px, 92vw);
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--line);
+        background: linear-gradient(
+          180deg,
+          rgba(9, 16, 33, 0.95),
+          rgba(9, 16, 33, 0.65)
+        );
+      }
+
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 18px;
+        padding: 18px 0;
+      }
+
+      .brand {
+        letter-spacing: 0.6px;
+        font-weight: 800;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      nav a {
+        font-size: 0.93rem;
+        color: #cfd8f4;
+        padding: 8px 12px;
+        border: 1px solid transparent;
+        border-radius: 999px;
+      }
+
+      nav a:hover,
+      nav a.active {
+        border-color: #89b1ff;
+        color: white;
+      }
+
+      nav a:focus-visible {
+        outline: 2px solid #89b1ff;
+        outline-offset: 3px;
+      }
+
+      main {
+        padding-bottom: 90px;
+      }
+
+      section {
+        margin-top: 34px;
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: color-mix(in srgb, var(--panel) 76%, #000);
+        box-shadow: var(--shadow);
+        scroll-margin-top: 92px;
+      }
+
+      .hero {
+        margin-top: 24px;
+        padding: 42px 28px;
+        position: relative;
+      }
+
+      .eyebrow {
+        margin: 0;
+        color: #9ec6ff;
+        font-weight: 700;
+        letter-spacing: 1.1px;
+        font-size: 0.85rem;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        margin: 0;
+      }
+
+      .hero h1 {
+        margin-top: 8px;
+        font-size: clamp(2rem, 5vw, 3.4rem);
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+      }
+
+      .accent {
+        color: var(--accent);
+      }
+
+      .hero p {
+        max-width: 800px;
+        color: var(--muted);
+        line-height: 1.8;
+        margin-top: 14px;
+      }
+
+      .hero-actions {
+        margin-top: 22px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        border-radius: 999px;
+        padding: 10px 18px;
+        font-weight: 700;
+        border: 1px solid transparent;
+        background: linear-gradient(120deg, var(--accent), var(--accent-2));
+        color: #0a1330;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: #e1ebff;
+        border-color: rgba(255, 255, 255, 0.32);
+      }
+
+      .metrics {
+        margin-top: 24px;
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .metric {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 14px;
+      }
+
+      .metric strong {
+        font-size: 1.7rem;
+      }
+
+      .metric span {
+        display: block;
+        color: var(--muted);
+        margin-top: 8px;
+        font-size: 0.93rem;
+      }
+
+      .section-title {
+        margin: 0;
+        font-size: clamp(1.4rem, 3vw, 1.85rem);
+      }
+
+      .section-subtitle {
+        color: var(--muted);
+        margin: 10px 0 0;
+      }
+
+      .grid {
+        display: grid;
+        gap: 14px;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 14px;
+      }
+
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px;
+        background: rgba(11, 17, 38, 0.4);
+      }
+
+      .panel p,
+      .timeline li,
+      .job p {
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .pill {
+        display: inline-flex;
+        margin-top: 8px;
+        padding: 7px 12px;
+        border-radius: 999px;
+        border: 1px solid #5a6d9f;
+        background: rgba(255, 255, 255, 0.06);
+        font-size: 0.82rem;
+      }
+
+      .highlight-box {
+        padding: 16px;
+        border-radius: 14px;
+        border: 1px solid #3d4d84;
+        background: linear-gradient(
+          130deg,
+          rgba(99, 226, 255, 0.12),
+          rgba(122, 125, 255, 0.08)
+        );
+      }
+
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .project {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px;
+        background: var(--panel);
+        display: flex;
+        flex-direction: column;
+        min-height: 230px;
+      }
+
+      .project h3 {
+        font-size: 1.1rem;
+      }
+
+      .meta {
+        margin-top: 8px;
+        color: #a6b7e3;
+        font-size: 0.89rem;
+      }
+
+      .meta span {
+        font-weight: 700;
+        color: #d2dcff;
+      }
+
+      .project p {
+        margin: 12px 0 0;
+        flex: 1;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .tag {
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        color: #d6e0ff;
+        font-size: 0.76rem;
+      }
+
+      .skills {
+        display: grid;
+        gap: 12px;
+      }
+
+      .skill-line {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 14px;
+        align-items: center;
+      }
+
+      .bar {
+        position: relative;
+        height: 11px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.18);
+        overflow: hidden;
+      }
+
+      .bar-fill {
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        width: 0;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      }
+
+      .skill-score {
+        font-size: 0.84rem;
+        color: #b5c5f5;
+      }
+
+      .timeline {
+        margin: 8px 0 0;
+        padding-left: 12px;
+        border-left: 1px solid rgba(255, 255, 255, 0.24);
+      }
+
+      .job {
+        padding: 0 0 16px 18px;
+        position: relative;
+      }
+
+      .job::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        position: absolute;
+        left: -5px;
+        top: 6px;
+        background: var(--accent);
+        box-shadow: 0 0 0 6px rgba(99, 226, 255, 0.14);
+      }
+
+      .job h4,
+      .job h5 {
+        margin: 0;
+      }
+
+      .job p {
+        margin: 7px 0 0;
+      }
+
+      .contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .contact .btn {
+        border-radius: 12px;
+      }
+
+      .contact-note {
+        margin: 0;
+        color: #9ab1da;
+        line-height: 1.6;
+        font-size: 0.94rem;
+      }
+
+      footer {
+        color: #9aabd2;
+        text-align: center;
+        margin: 38px 0 44px;
+      }
+
+      .to-top {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 20;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid var(--line);
+        background: linear-gradient(140deg, #1f2d56, #151f41);
+        color: #eaf3ff;
+        font-size: 1.2rem;
+        font-weight: 800;
+        cursor: pointer;
+        opacity: 0;
+        transform: translateY(8px);
+        pointer-events: none;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+      }
+
+      .to-top.show {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: -999px;
+        top: 0;
+        background: #111f40;
+        color: #fff;
+        padding: 10px 14px;
+        border-radius: 8px;
+        z-index: 30;
+        border: 1px solid var(--line);
+      }
+
+      .skip-link:focus {
+        left: 12px;
+        top: 12px;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.65s ease;
+      }
+
+      @media (max-width: 980px) {
+        .projects {
+          grid-template-columns: 1fr;
+        }
+
+        .about-grid,
+        .metrics {
+          grid-template-columns: 1fr;
+        }
+
+        .skill-line {
+          grid-template-columns: 120px 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .top {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        section,
+        .hero {
+          padding: 20px;
+        }
+
+        .hero-actions {
+          width: 100%;
+        }
+
+        .btn {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .metric {
+          padding: 12px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <a class="skip-link" href="#content">본문 바로가기</a>
+
+    <header>
+      <div class="container top">
+        <div class="brand">김인성 · Senior Java Backend Portfolio</div>
+        <nav id="menu">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#career">Career</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container" id="content">
+      <section class="hero reveal">
+        <p class="eyebrow">20년 경력 Java 백엔드 / Spring / 아키텍처 설계</p>
+        <h1>
+          사용자 신뢰를 지키는 <span class="accent">백엔드 구조 설계자</span>
+          입니다.
+        </h1>
+        <p>
+          운영 중단 없이 확장되는 시스템을 우선시합니다. Java 백엔드,
+          동시성 제어, 데이터 정합성, 장애 대응, 성능 튜닝을 함께 다루며 팀이
+          안정적으로 제품을 키울 수 있도록 설계와 실행을 연결합니다.
+        </p>
+        <div class="hero-actions" aria-label="주요 CTA">
+          <a class="btn" href="#projects">주요 프로젝트 보기</a>
+          <a class="btn btn-outline" href="#contact">협업 제안 보내기</a>
+        </div>
+        <div class="metrics" aria-label="핵심 수치">
+          <div class="metric">
+            <strong>10+</strong>
+            <span>대규모 운영 시스템 구축/개편</span>
+          </div>
+          <div class="metric">
+            <strong>99.9%</strong>
+            <span>안정 운영 지표 유지</span>
+          </div>
+          <div class="metric">
+            <strong>40%</strong>
+            <span>응답시간 개선 프로젝트 완료</span>
+          </div>
+          <div class="metric">
+            <strong>20년</strong>
+            <span>백엔드 설계·개발·운영 경험</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="reveal anchored">
+        <h2 class="section-title">About</h2>
+        <p class="section-subtitle">문제 해결형 아키텍처 중심의 시니어 엔지니어</p>
+        <div class="about-grid" style="margin-top: 14px;">
+          <article class="panel">
+            <h3>접근 방식</h3>
+            <p>
+              요구사항 해석부터 운영 이력까지 함께 보기 위해, 기능 구현 전에
+              실패 시나리오와 트래픽 가정, 데이터 정합성 경계를 먼저 정의합니다.
+              구현 후에는 모니터링 지표와 알림 체계를 기준으로 수치 개선을
+              지속합니다.
+            </p>
+            <span class="pill">백엔드 아키텍처</span>
+            <span class="pill">운영 안정성</span>
+            <span class="pill">장애 대응 리드</span>
+          </article>
+          <article class="highlight-box">
+            <h3>핵심 성과 포인트</h3>
+            <ul>
+              <li>레거시 장애 경로를 정리해 전파 시간을 30% 축소</li>
+              <li>배치-동기화 파이프라인 재설계로 처리 지연 40% 개선</li>
+              <li>로그/메트릭 체계 표준화로 운영 이슈 대응 의사결정 단축</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" class="reveal anchored">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">문제 → 역할 → 성과 중심의 핵심 프로젝트</p>
+        <div class="projects" id="projectsList"></div>
+      </section>
+
+      <section id="skills" class="reveal anchored">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-subtitle">설계, 구현, 운영까지 연결된 실무형 역량</p>
+        <div class="panel" style="margin-top: 14px;">
+          <div class="skills" id="skillList"></div>
+        </div>
+      </section>
+
+      <section id="career" class="reveal anchored">
+        <h2 class="section-title">Career</h2>
+        <p class="section-subtitle">리더십, 의사결정, 실행을 함께 설계한 경험</p>
+        <div class="panel" style="margin-top: 14px;">
+          <div class="timeline" id="careerList"></div>
+        </div>
+      </section>
+
+      <section id="contact" class="reveal anchored">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">협업/채용 제안은 아래 채널로 직접 받습니다.</p>
+        <p class="contact-note">
+          20년차 Java 백엔드 시니어의 실무 중심 포트폴리오입니다.
+        </p>
+        <div class="contact" style="margin-top: 14px;">
+          <a
+            class="btn"
+            href="mailto:kim.inseong@example.com"
+            aria-label="이메일 보내기"
+          >
+            이메일 보내기
+          </a>
+          <a
+            class="btn btn-outline"
+            href="https://github.com/kensin8026"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub 열기"
+          >
+            GitHub
+          </a>
+          <a
+            class="btn btn-outline"
+            href="https://www.linkedin.com/in/kiminseong"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn 열기"
+          >
+            LinkedIn
+          </a>
+          <a
+            class="btn btn-outline"
+            href="https://blog.example.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="블로그 열기"
+          >
+            Tech Blog
+          </a>
+          <a
+            class="btn btn-outline"
+            href="mailto:kim.inseong@example.com?subject=%5BPortfolio%5D%20협업%20제안"
+            aria-label="협업 제안 메일 쓰기"
+          >
+            협업 제안 메일
+          </a>
+          <a
+            class="btn btn-outline"
+            href="/resume.pdf"
+            aria-label="이력서 다운로드"
+          >
+            이력서 PDF
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>© <span id="year"></span> Senior Java Backend Portfolio</footer>
+    <button id="toTop" class="to-top" aria-label="맨 위로 이동">↑</button>
+
+    <script>
+      const projects = [
+        {
+          title: '대규모 주문/재고 서비스 개선',
+          period: '2024 - 2025',
+          role: 'Lead Backend Engineer',
+          architecture: '이중 쓰기 격리와 동시성 제어 리디자인',
+          outcome: '피크 타임 응답 지연 40% 개선, 이중 처리율 감소',
+          tech: ['Java', 'Spring Boot', 'Kafka', 'Redis', 'PostgreSQL'],
+        },
+        {
+          title: '실시간 정산 파이프라인 플랫폼',
+          period: '2022 - 2024',
+          role: 'Backend Architect',
+          architecture: '분산 스케줄러와 보상 트랜잭션 패턴 적용',
+          outcome: '처리 실패율 0.4% → 0.07%로 감소',
+          tech: ['Java', 'Spring Batch', 'RabbitMQ', 'MyBatis', 'MySQL'],
+        },
+        {
+          title: 'Legacy to MSA 전환 프로젝트',
+          period: '2020 - 2022',
+          role: 'Tech Lead',
+          architecture: '도메인 분해와 공통 인증/감사 모듈 정비',
+          outcome: '릴리스 주기 2주→2일, 장애 복구시간 50% 단축',
+          tech: ['Java', 'Spring Cloud', 'JPA', 'PostgreSQL', 'Docker'],
+        },
+        {
+          title: '운영 모니터링 통합 대시보드',
+          period: '2019 - 2020',
+          role: 'Senior Developer',
+          architecture: '메트릭 수집, 알림 임계치 정책, 근본 원인 추적 체계',
+          outcome: '장애 탐지 시간 3배 단축, 회귀 분석 대응 표준화',
+          tech: ['Java', 'Prometheus', 'Grafana', 'Spring Actuator', 'ELK'],
+        },
+      ];
+
+      const skills = [
+        { name: 'Java & JVM', score: 96, note: '동시성, GC 튜닝, 대규모 트랜잭션 처리' },
+        { name: 'Spring Ecosystem', score: 93, note: 'Boot, MVC, Security, Data, Batch, Cloud' },
+        { name: 'System Design', score: 92, note: 'MSA, 메시지 큐, 이벤트 기반 아키텍처' },
+        { name: 'Data & DB', score: 90, note: 'PostgreSQL 튜닝, 쿼리 플래닝, 정합성 설계' },
+        { name: 'Ops & Resilience', score: 89, note: 'Monitoring, CI/CD, 장애 대응 플레이북' },
+      ];
+
+      const careers = [
+        {
+          company: 'TechCorp Korea',
+          period: '2021 - 현재',
+          role: 'Senior Backend Engineer / Tech Lead',
+          text: '주요 결제/정산 파이프라인의 안정성 개선과 신규 결제 모듈 설계를 주도. 팀별 기준 문서를 정리해 배포 전 검증 시간을 단축했습니다.',
+        },
+        {
+          company: 'PlatformSoft',
+          period: '2015 - 2021',
+          role: 'Backend Engineer',
+          text: '금융형 SaaS 플랫폼 핵심 API를 리빌딩해 동시성 이슈를 제거하고 장애 영향도를 줄였습니다. 코드 리뷰/표준화 가이드를 정착시켰습니다.',
+        },
+        {
+          company: 'CloudWave',
+          period: '2008 - 2015',
+          role: 'Software Engineer',
+          text: '웹서비스 백엔드부터 운영 도구까지 전반적 개발을 담당하며 JVM 튜닝, 배치 자동화, API 안정성 개선 프로젝트를 수행했습니다.',
+        },
+      ];
+
+      const projectHost = document.getElementById('projectsList');
+      const skillHost = document.getElementById('skillList');
+      const careerHost = document.getElementById('careerList');
+
+      projectHost.innerHTML = projects
+        .map((project) => {
+          return `
+            <article class="project" aria-label="프로젝트">
+              <h3>${project.title}</h3>
+              <div class="meta"><span>${project.period}</span> · ${project.role}</div>
+              <p><strong style="color: #e6eeff">Architecture:</strong> ${project.architecture}</p>
+              <p><strong style="color: #e6eeff">Outcome:</strong> ${project.outcome}</p>
+              <div class="tags">${project.tech
+                .map((t) => `<span class="tag">${t}</span>`)
+                .join('')}</div>
+            </article>
+          `;
+        })
+        .join('');
+
+      skillHost.innerHTML = skills
+        .map(
+          (skill) => `
+            <div class="skill-line">
+              <div>
+                <h4 style="margin: 0; font-size: 1rem;">${skill.name}</h4>
+                <div class="skill-score">${skill.score}%</div>
+              </div>
+              <div>
+                <div class="bar" role="presentation">
+                  <div class="bar-fill" data-score="${skill.score}"></div>
+                </div>
+                <p style="margin-top: 8px;">${skill.note}</p>
+              </div>
+            </div>
+          `,
+        )
+        .join('');
+
+      careerHost.innerHTML = careers
+        .map(
+          (career) => `
+            <article class="job">
+              <h4>${career.period} · ${career.company}</h4>
+              <h5>${career.role}</h5>
+              <p>${career.text}</p>
+            </article>
+          `,
+        )
+        .join('');
+
+      const observers = new IntersectionObserver(
+        (entries, io) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('show');
+            io.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.2 },
+      );
+
+      document.querySelectorAll('.reveal').forEach((el) => observers.observe(el));
+
+      const bars = document.querySelectorAll('.bar-fill');
+      const barObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const bar = entry.target;
+            const score = bar.dataset.score || 0;
+            requestAnimationFrame(() => {
+              bar.style.width = `${score}%`;
+            });
+            barObserver.unobserve(bar);
+          });
+        },
+        { threshold: 0.5 },
+      );
+      bars.forEach((bar) => {
+        bar.style.transition = 'width 1.05s cubic-bezier(0.22, 1, 0.36, 1)';
+        barObserver.observe(bar);
+      });
+
+      const toTop = document.getElementById('toTop');
+      const onScroll = () => {
+        if (window.scrollY > 320) {
+          toTop.classList.add('show');
+        } else {
+          toTop.classList.remove('show');
+        }
+      };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      toTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      const links = Array.from(document.querySelectorAll('nav a'));
+      const sections = links.map((link) => document.querySelector(link.getAttribute('href')));
+
+      const navObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const index = sections.indexOf(entry.target);
+            if (index === -1) return;
+            const link = links[index];
+            if (entry.isIntersecting) {
+              links.forEach((l) => l.classList.remove('active'));
+              link.classList.add('active');
+            }
+          });
+        },
+        { rootMargin: '-45% 0px -45% 0px', threshold: 0 },
+      );
+      sections.forEach((section) => {
+        if (section) navObserver.observe(section);
+      });
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

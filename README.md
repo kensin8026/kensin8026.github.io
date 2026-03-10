@@ -1,80 +1,25 @@
-# [Garth](https://garth.darn.es/)
-[![Gem Version](https://badge.fury.io/rb/garth-jekyll-theme.svg)](https://badge.fury.io/rb/garth-jekyll-theme)
+# 김인성 Senior Java Backend Portfolio
 
-🥁 A really basic theme for Jekyll, using the official Jekyll theme implementation.
+`index.html` 단일 페이지 포트폴리오입니다.
 
-[<img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" width="217"/>](https://buymeacoffee.com/daviddarnes#support)
+## 구성
+- Hero, About, Projects, Skills, Career, Contact 섹션
+- 다크 네온 기반 반응형 레이아웃
+- 스크롤 reveal, 스킬 바 애니메이션, 목차 탐색, 맨 위 이동 버튼, 접근성 보강 반영
 
-![Screenshot](https://raw.githubusercontent.com/daviddarnes/garth/master/screenshot.png)
+## 배포
+- GitHub Pages에서 루트의 `index.html`로 바로 렌더링됩니다.
+- 빌드 도구 없이 정적 배포 가능합니다.
 
-## Contents
-- [Installation](#installation)
-- [Customising](#customising)
-- [Site settings](#site-settings)
-- [Page layouts](#page-layouts)
-- [Credits](#credits)
+## 실사용 전 체크
+- `index.html`의 연락처 링크(`mailto`, GitHub, LinkedIn, 블로그, 이력서)
+- 경력/프로젝트 항목의 수치 및 키워드
 
-## Installation
+## 실행/배포
+- GitHub Pages는 루트의 `index.html`을 사용하면 바로 노출됩니다.
+- 추가 라이브러리 없이 순수 HTML/CSS/JS로 구성되어 별도 빌드가 필요 없습니다.
 
-### Quick setup
-
-To give you a running start I've put together some starter kits that you can download, fork or even deploy immediately:
-
-- Vanilla Jekyll starter kit:  
-  [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/daviddarnes/garth-kit)
-- Stackbit starter kit:  
-  [![Create with Stackbit](https://assets.stackbit.com/badge/create-with-stackbit.svg)](https://app.stackbit.com/create?theme=https://github.com/daviddarnes/garth-stackbit-kit)
-- GitHub Pages with remote theme kit - **[Download kit](https://github.com/daviddarnes/garth-kit/archive/remote-theme.zip)**
-
-### As a Jekyll theme
-
-1. Add `gem "garth-jekyll-theme"` to your `Gemfile` to add the theme as a dependancy
-2. Run the command `bundle install` in the root of project to install the theme and its dependancies
-3. Add `theme: garth-jekyll-theme` to your `_config.yml` file to set the site theme
-4. Run `bundle exec jekyll serve` to build and serve your site
-5. Done! Use the example [`_config.yml`](https://github.com/daviddarnes/garth/blob/master/_config.yml) file to set site-wide options
-
-### As a GitHub Pages remote theme
-
-1. Add `gem "jekyll-remote-theme"` to your `Gemfile` to add the theme as a dependancy
-2. Run the command `bundle install` in the root of project to install the jekyll remote theme gem as a dependancy
-3. Add `jekyll-remote-theme` to the list of `plugins` in your `_config.yml` file
-4. Add `remote_theme: daviddarnes/garth` to your `_config.yml` file to set the site theme
-5. Run `bundle exec jekyll serve` to build and serve your site
-6. Done! Use the example [`_config.yml`](https://github.com/daviddarnes/garth/blob/master/_config.yml) file to set site-wide options
-
-### As a Boilerplate / Fork
-
-_(deprecated, not recommended)_
-
-1. [Fork the repo](https://github.com/daviddarnes/garth#fork-destination-box)
-2. Replace the `Gemfile` with one stating all the gems used in your project
-3. Delete the following unnecessary files/folders: `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md`, `LICENSE`, `screenshot.png`, `CNAME` and `garth-jekyll-theme.gemspec`
-4. Run the command `bundle install` in the root of project to install the jekyll remote theme gem as a dependancy
-5. Run `bundle exec jekyll serve` to build and serve your site
-6. Done! Use the example [`_config.yml`](https://github.com/daviddarnes/garth/blob/master/_config.yml) file to set site-wide options
-
-## Customising
-
-When using Garth as a theme means you can take advantage of the file overriding method. This allows you to overwrite any file in this theme with your own custom file, by matching the file name and path. The most common example of this would be if you want to add your own styles or change the core style settings.
-
-To add your own styles copy the [`styles.scss`](https://github.com/daviddarnes/garth/blob/master/assets/styles.scss) into your own project with the same file path (`assets/styles.scss`). From there you can add your own styles, you can even optionally ignore the theme styles by removing the `@import "garth";` line.
-
-If you're looking to set your own colours copy the [`_colors.scss`](https://github.com/daviddarnes/garth/blob/master/_sass/_colors.scss) and main theme styles file [`garth.scss`](https://github.com/daviddarnes/garth/blob/master/_sass/garth.scss) into your project at the same file path (`_sass/`) and change variables however you wish. The settings are a mixture of custom variables and settings from [Sassline](https://medium.com/@jakegiltsoff/sassline-v2-0-e424b2881e7e) - follow the link to find out how to configure the typographic settings.
-
-## Site settings
-
-You'll need to change the `description`, `title` and `url` to match with the project.
-
-## Page layouts
-
-There are 3 layouts; `page`, `post` and `home` (home acts as the font page blog).
-
-> **Note:** The Post List Page options are actually in the collection data within the `_config.yml` file, this is so they can be edited with CMSs such as [Siteleaf](https://siteleaf.com)
-
-## Credits
-
-- Thanks to [Sassline](https://sassline.com/) for the typographic basis, by [Jake Giltsoff](https://twitter.com/jakegiltsoff)
-- Thanks to [Flexbox mixin](https://github.com/mastastealth/sass-flex-mixin) by [Brian Franco](https://twitter.com/brianfranco)
-- Thanks to [Normalize](https://necolas.github.io/normalize.css/) by [Nicolas Gallagher](https://twitter.com/necolas) and [Jonathan Neal](https://twitter.com/jon_neal).
-- Thanks to [pygments-css](http://richleland.github.io/pygments-css/) for the autumn syntax highlighting, by [Rich Leland](https://twitter.com/richleland)
+## 기술 포인트
+- 접근성: 의미 있는 섹션 제목 구조와 키보드/스크린리더 고려 기본 스타일
+- 반응형: 모바일 기준 카드/그리드 자동 재배치
+- 인터랙션: 스크롤 reveal, 스킬 바 애니메이션, 네비게이션 active 표시
