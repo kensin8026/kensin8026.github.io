@@ -767,24 +767,24 @@
   <body>
     <a class="skip-link" href="#main-content">본문 바로가기</a>
 
-    <main class="app" id="main-content">
-      <aside class="sidebar">
-        <section class="shell" aria-label="프로필 패널">
-          <div class="shell-head">
-            <span class="shell-title">portfolio-terminal</span>
-          </div>
-          <div class="identity">
-            <h1>김인성 / Senior Java Backend</h1>
-            <p>20년차 실전 백엔드 시니어 · 신뢰성 높은 시스템 설계, 릴리즈 품질, 장애 복원력에 집중합니다.</p>
+      <main class="app" id="main-content">
+        <aside class="sidebar">
+          <section class="shell" aria-label="프로필 패널">
+            <div class="shell-head">
+              <span class="shell-title">portfolio-terminal</span>
+            </div>
+            <div class="identity">
+              <h1>김인성 / Senior Java Backend</h1>
+            <p>20년차 실전 백엔드 아키텍트 · 장애 전파 차단형 아키텍처, 배포 안정성, 복구 회복력 중심</p>
             <a class="terminal-link" href="mailto:kim.inseong@example.com">메일로 연락하기</a>
           </div>
           <nav class="mini-nav" aria-label="섹션 이동">
-            <a class="mini-link active" href="#home">01_HOME <span>오버뷰</span></a>
-            <a class="mini-link" href="#about">02_ABOUT <span>소개</span></a>
-            <a class="mini-link" href="#projects">03_PROJECTS <span>주요 프로젝트</span></a>
-            <a class="mini-link" href="#skills">04_SKILLS <span>역량</span></a>
-            <a class="mini-link" href="#career">05_CAREER <span>경력</span></a>
-            <a class="mini-link" href="#contact">06_CONTACT <span>연락</span></a>
+            <a class="mini-link active" href="#home">01_HOME <span>BOOT</span></a>
+            <a class="mini-link" href="#about">02_ABOUT <span>ARCH</span></a>
+            <a class="mini-link" href="#projects">03_PROJECTS <span>RUNBOOK</span></a>
+            <a class="mini-link" href="#skills">04_SKILLS <span>PERF_STACK</span></a>
+            <a class="mini-link" href="#career">05_CAREER <span>CHANGELOG</span></a>
+            <a class="mini-link" href="#contact">06_CONTACT <span>ENDPOINTS</span></a>
           </nav>
           <div class="mini-status">
             <div class="status-row">
@@ -823,9 +823,9 @@
           <div class="panel-body hero-layout">
             <div>
               <h2>신뢰성 높은 백엔드, <span id="typingText"></span><span class="cursor" aria-hidden="true"></span></h2>
-              <p class="lead">
-                기능 구현이 끝이 아니라, 장애 예방·복구·운영 지표까지 하나의 서비스 생명주기로 봅니다.
-                동시성, 정합성, 배포 안정성, 모니터링 체계로 운영 리스크를 낮추는 것을 최우선으로 합니다.
+            <p class="lead">
+                기능 구현을 시작점이 아닌 끝점으로 보고, 장애 탐지/격리/복구까지 하나의 파이프라인으로 운영합니다.
+                동시성·정합성·배포 안정성·모니터링으로 리스크를 낮추는 설계를 우선합니다.
               </p>
               <div class="tags">
                 <span class="tag">Java / JVM</span>
@@ -834,30 +834,30 @@
                 <span class="tag">DB 정합성 설계</span>
               </div>
               <div class="cta">
-                <a class="button primary" href="#projects">프로젝트 보기</a>
-                <a class="button" href="#contact">협업 제안</a>
+                <a class="button primary" href="#projects">프로젝트 조회</a>
+                <a class="button" href="#contact">협업 제안 발송</a>
               </div>
             </div>
             <div>
               <div class="meta-grid">
                 <div class="meta-card">
                   <strong>10+</strong>
-                  <span>대규모 플랫폼 개선 경험</span>
+                  <span>대규모 플랫폼 개편 이력</span>
                 </div>
                 <div class="meta-card">
                   <strong>99.9%</strong>
-                  <span>안정 운영 목표 지향</span>
+                  <span>안정 운영 목표 충족율</span>
                 </div>
                 <div class="meta-card">
                   <strong>40%</strong>
-                  <span>평균 응답 지연 개선 사례</span>
+                  <span>응답 지연 평균 개선</span>
                 </div>
                 <div class="meta-card">
                   <strong>20y</strong>
-                  <span>실서비스 설계·운영 누적 경력</span>
+                  <span>실서비스 설계·운영 연차</span>
                 </div>
               </div>
-              <p class="floating-note">TIP: 좌측 메뉴의 각 항목은 커맨드처럼 이동됩니다.</p>
+              <p class="floating-note">TIP: 좌측 메뉴는 커맨드 라우팅처럼 각 섹션으로 이동합니다.</p>
             </div>
           </div>
         </section>
@@ -867,21 +867,21 @@
             <h2 class="panel-title">[FILE] <span>about.md</span></h2>
           </div>
           <div class="panel-body">
-            <p class="section-intro">문제의 본질을 설계 단계에서 분해하고, 운영 관점에서 검증합니다.</p>
+            <p class="section-intro">문제는 구현 직전이 아니라, 장애 경로와 정합성 실패 지점에서부터 분해합니다.</p>
             <div class="sub-grid">
               <article class="text-box">
                 <h3>아키텍처 철학</h3>
                 <p>
-                  신규 기능 구현 전 장애 경로 분석, 동시성 경계 설계, 회복 전략을 먼저 정리합니다.
-                  정합성이 깨지기 쉬운 파이프라인부터 설계를 시작해 장애 전파를 최대한 제한합니다.
+                  신규 기능 구현 전에 장애 전파 경로, 동시성 경계, 복구 전략을 설계해 리스크를 선제 차단합니다.
+                  정합성이 깨지기 쉬운 파이프라인부터 설계를 시작해 장애 확산을 최소화합니다.
                 </p>
               </article>
               <article class="text-box">
                 <h3>운영형 리더십</h3>
                 <ul>
-                  <li>릴리즈 전 점검 기준을 문서화하고 팀 전체가 지키는 룰로 정착</li>
-                  <li>알림 임계치와 장애 등급을 명확히 분리해 대응 속도 향상</li>
-                  <li>장애 포스트모템을 플레이북으로 전환하여 재발 방지</li>
+                  <li>릴리즈 전 점검 기준을 문서화하여 팀 전체의 운영 기준으로 정렬</li>
+                  <li>알림 임계치와 장애 등급 체계를 분리해 대응 속도를 단축</li>
+                  <li>포스트모템을 플레이북으로 전환해 재발을 방지하는 운영 루프 구성</li>
                 </ul>
               </article>
             </div>
@@ -893,7 +893,7 @@
             <h2 class="panel-title">[DIR] <span>./projects</span></h2>
           </div>
           <div class="panel-body">
-            <p class="section-intro">문제 → 설계 → 성과의 순서로 정리</p>
+            <p class="section-intro">이슈 → 설계 → 실행 → 검증의 순서로 로그처럼 정렬</p>
             <div class="projects" id="projectsList"></div>
           </div>
         </section>
@@ -903,7 +903,7 @@
             <h2 class="panel-title">[MODULE] <span>skills.sh</span></h2>
           </div>
           <div class="panel-body">
-            <p class="section-intro">영역별 성숙도 (정량 + 정성)</p>
+            <p class="section-intro">영역별 성능·회복력 지표와 운영 성숙도를 함께 측정</p>
             <div class="skill-wrap" id="skillsList"></div>
           </div>
         </section>
@@ -913,7 +913,7 @@
             <h2 class="panel-title">[LOG] <span>career.timeline</span></h2>
           </div>
           <div class="panel-body">
-            <p class="section-intro">실전 시스템에서 증명한 운영·기술 리더십 경로</p>
+            <p class="section-intro">실전 운영 환경에서 축적한 설계·릴리즈·안정화 이력</p>
             <div class="timeline" id="careerList"></div>
           </div>
         </section>
@@ -923,7 +923,7 @@
             <h2 class="panel-title">[OUTPUT] <span>contact.contact</span></h2>
           </div>
           <div class="panel-body">
-            <p class="section-intro">협업/채용/제안은 아래 채널로 문의 가능</p>
+            <p class="section-intro">협업·채용·기술 제안은 아래 엔드포인트로 요청하세요</p>
             <div class="contact-layout">
               <div class="contact-grid">
                 <a class="contact-card" href="mailto:kim.inseong@example.com">
